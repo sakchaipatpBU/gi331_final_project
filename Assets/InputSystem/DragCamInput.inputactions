@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "name": "DragCamInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "aee30d71-f606-4ec7-8dac-31ced1bf85d8",
+            "actions": [
+                {
+                    "name": "Drag",
+                    "type": "Button",
+                    "id": "1709b595-cf6d-45d5-9931-d537062ae7d5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d219ddc8-0833-4c51-bc62-e287581ad61b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85c7bae8-4b80-4898-925c-9d9c9d4daaa3",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
