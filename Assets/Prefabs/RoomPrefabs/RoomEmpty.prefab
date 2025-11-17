@@ -57,16 +57,16 @@ MonoBehaviour:
   - {fileID: 283535420, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   - {fileID: 1847468095, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   - {fileID: 1574806714, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 845932062, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -213237549, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   - {fileID: 493294808, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
-  - {fileID: 181007442, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
-  - {fileID: 677519233, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   roomTypeSpriteRight:
   - {fileID: 808045351, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   - {fileID: -852241715, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   - {fileID: -827035903, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -25446992, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -1090588451, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   - {fileID: 1745985880, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
-  - {fileID: -121494861, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
-  - {fileID: -171739076, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   roomTierSpriteLeft:
   - {fileID: 1847468095, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   - {fileID: -219072094, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
