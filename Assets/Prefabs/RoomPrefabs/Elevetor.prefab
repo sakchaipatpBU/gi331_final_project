@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9150390698385485638}
   - component: {fileID: 3604049645489599647}
   m_Layer: 0
-  m_Name: stair_32x32
+  m_Name: Elevetor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1895477701
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f47ac5890ab373c4383b90b0e0a15dd5, type: 3}
+  m_Sprite: {fileID: -1322759381, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

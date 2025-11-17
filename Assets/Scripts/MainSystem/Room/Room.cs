@@ -75,23 +75,23 @@ public class Room : MonoBehaviour
         }
         else if(roomType == RoomType.Fitness)
         {
-            spriteRendererLeft.sprite = roomTypeSpriteLeft[1];
-            spriteRendererRight.sprite = roomTypeSpriteRight[1];
-        }
-        else if(roomType == RoomType.Toilet)
-        {
             spriteRendererLeft.sprite = roomTypeSpriteLeft[2];
             spriteRendererRight.sprite = roomTypeSpriteRight[2];
         }
-        else if(roomType == RoomType.GarbageRoom)
+        else if(roomType == RoomType.Toilet)
         {
             spriteRendererLeft.sprite = roomTypeSpriteLeft[3];
             spriteRendererRight.sprite = roomTypeSpriteRight[3];
         }
-        else if(roomType == RoomType.WashingMachineRoom)
+        else if(roomType == RoomType.GarbageRoom)
         {
             spriteRendererLeft.sprite = roomTypeSpriteLeft[4];
             spriteRendererRight.sprite = roomTypeSpriteRight[4];
+        }
+        else if(roomType == RoomType.WashingMachineRoom)
+        {
+            spriteRendererLeft.sprite = roomTypeSpriteLeft[5];
+            spriteRendererRight.sprite = roomTypeSpriteRight[5];
         }
         else
         {
@@ -159,6 +159,9 @@ public class Room : MonoBehaviour
         {
             Debug.Log("RoomTier is already max Tier.");
         }
+
+        UpdateSprite();
+        Debug.Log("UPGRADE");
     }
     public int CalculateSellRoomPrice()
     {

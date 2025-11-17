@@ -54,15 +54,27 @@ MonoBehaviour:
   spriteRendererLeft: {fileID: 7618102169537863183}
   spriteRendererRight: {fileID: 2863794068062966055}
   roomTypeSpriteLeft:
-  - {fileID: 21300000, guid: ecb4c3495a78f5d4380e9cd7da69fc24, type: 3}
-  - {fileID: 21300000, guid: 62824da91b8a8fc48bd0102f4ea305e7, type: 3}
+  - {fileID: 283535420, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 1847468095, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 1574806714, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 493294808, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 181007442, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 677519233, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   roomTypeSpriteRight:
-  - {fileID: 21300000, guid: 19ff99acf24bb0449a4783fc74252a87, type: 3}
-  - {fileID: 21300000, guid: c5fddb3a323942b42b1fd4a9110cbddb, type: 3}
+  - {fileID: 808045351, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -852241715, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -827035903, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 1745985880, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -121494861, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -171739076, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   roomTierSpriteLeft:
-  - {fileID: 21300000, guid: 62824da91b8a8fc48bd0102f4ea305e7, type: 3}
+  - {fileID: 1847468095, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -219072094, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -1505520522, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   roomTierSpriteRight:
-  - {fileID: 21300000, guid: c5fddb3a323942b42b1fd4a9110cbddb, type: 3}
+  - {fileID: -852241715, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: -1887350054, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
+  - {fileID: 360518453, guid: 83bc51b4f24c02c4ba0a77e7d5eac293, type: 3}
   roomPosition: {x: 0, y: 0, z: 0}
   price_Type: 64000000640000002c010000f401000020030000e8030000
   price_Tier: 64000000c80000002c010000
