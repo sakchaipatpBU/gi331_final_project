@@ -173,23 +173,23 @@ public class BuyPanel : MonoBehaviour
         priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.Fitness).ToString();
         selectedType = RoomType.Fitness;
     }
-    public void OnToiletButtonClicked()
+    public void OnMailRoomButtonClicked()
     {
         buyButton.gameObject.SetActive(true);
-        priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.Toilet).ToString();
-        selectedType = RoomType.Toilet;
+        priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.MailRoom).ToString();
+        selectedType = RoomType.MailRoom;
     }
-    public void OnGarbageRoomButtonClicked()
+    public void OnLivingRoomButtonClicked()
     {
         buyButton.gameObject.SetActive(true);
-        priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.GarbageRoom).ToString();
-        selectedType = RoomType.GarbageRoom;
+        priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.LivingRoom).ToString();
+        selectedType = RoomType.LivingRoom;
     }
-    public void OnWashingMachineRoomButtonClicked()
+    public void OnKitchenButtonClicked()
     {
         buyButton.gameObject.SetActive(true);
-        priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.WashingMachineRoom).ToString();
-        selectedType = RoomType.WashingMachineRoom;
+        priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.Kitchen).ToString();
+        selectedType = RoomType.Kitchen;
     }
     public void OnRoomButtonClicked(RoomType type)
     {

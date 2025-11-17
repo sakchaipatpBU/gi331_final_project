@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    public int minute = 0;
+    public int hour = 0;
     public int day = 1;
     public int month = 1;
     public int year = 1;
@@ -27,9 +29,28 @@ public class TimeManager : MonoBehaviour
     {
         timer += Time.deltaTime * timeSpeed;
 
-        if (timer >= 24) // 24 วินาทีในเกม = 1 วัน
+        if (timer >= 60) // 24 วินาทีในเกม = 1 วัน
         {
             timer = 0;
+            AddMinute();
+        }
+    }
+    void AddMinute()
+    {
+        minute++;
+        if (minute >= 60)
+        {
+            minute = 0;
+            AddHour();
+        }
+    }
+
+    void AddHour()
+    {
+        hour++;
+        if (hour >= 24)
+        {
+            hour = 0;
             AddDay();
         }
     }
@@ -74,19 +95,19 @@ public class TimeManager : MonoBehaviour
 
     public void OnNormalTimeScale()
     {
-        timeSpeed = 1f;
+        timeSpeed = 3600;
     }
     public void On3SecPerDayTimeScale()
     {
-        timeSpeed = 8f;
+        timeSpeed = 28800f;
     }
     public void On6SecPerDayTimeScale()
     {
-        timeSpeed = 4f;
+        timeSpeed = 14400f;
     }
     public void On12SecPerDayTimeScale()
     {
-        timeSpeed = 2f;
+        timeSpeed = 7200f;
     }
 
     #endregion

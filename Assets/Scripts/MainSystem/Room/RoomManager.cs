@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class RoomManager : MonoBehaviour
 {
@@ -11,7 +11,19 @@ public class RoomManager : MonoBehaviour
 
     public int floorCount;
 
-
+    public int moneyDaily;
+    public int reputationDaily;
+    public List<Room> allRoom = new List<Room>();
+    private void OnEnable()
+    {
+        TimeManager.OnNewDay += AddMoneyDaily;
+        TimeManager.OnNewDay += AddReputationDaily;
+    }
+    private void OnDisable()
+    {
+        TimeManager.OnNewDay -= AddMoneyDaily;
+        TimeManager.OnNewDay -= AddReputationDaily;
+    }
     private void Start()
     {
         floorCount = ElevetorManager.Instance.allFloor;
@@ -19,7 +31,7 @@ public class RoomManager : MonoBehaviour
 
 
     }
-
+    
     void GenerateBuilding()
     {
         for (int i = 0; i < column; i++)
@@ -47,8 +59,38 @@ public class RoomManager : MonoBehaviour
                 , emptyRoomParent);
 
                 room.name = $"Room [{i},{j}]";
+
+                Room newRoom = room.GetComponent<Room>();
+                allRoom.Add(newRoom);
             }
 
+        }
+    }
+    void CreateNewRoomFloor() // Feature - สร้างชั้นใหม่
+    {
+
+    }
+    public void AddMoneyDaily()
+    {
+        for(int i = allRoom.Count - 1; i >= 0; i--)
+        {
+            if (allRoom[i].roomType != RoomType.Empty && 
+                allRoom[i].roomType != RoomType.Bedroom)
+            {
+                Money.Instance.AddMoney(moneyDaily);
+            }
+        }
+    }
+
+    public void AddReputationDaily()
+    {
+        for (int i = allRoom.Count - 1; i >= 0; i--)
+        {
+            if (allRoom[i].roomType != RoomType.Empty &&
+                allRoom[i].roomType != RoomType.Bedroom)
+            {
+                Reputation.Instance.AddReputation(reputationDaily);
+            }
         }
     }
 

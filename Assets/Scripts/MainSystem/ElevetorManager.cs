@@ -17,8 +17,8 @@ public class ElevetorManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
-        SaveManager.LoadFloorCount();
-        allFloor = baseFloor + floorCount;
+        LoadFloor();
+        CalculateAllFloor();
     }
     #endregion
 
@@ -33,5 +33,24 @@ public class ElevetorManager : MonoBehaviour
                 , Quaternion.identity
                 , elevetorParent);
         }
+    }
+    public void CalculateAllFloor()
+    {
+        allFloor = baseFloor + floorCount;
+    }
+    public void AddFloor(int count)
+    {
+        floorCount += count;
+        CalculateAllFloor();
+
+        SaveFloor();
+    }
+    public void SaveFloor()
+    {
+        SaveManager.SaveFloorCount();
+    }
+    public void LoadFloor()
+    {
+        SaveManager.LoadFloorCount();
     }
 }

@@ -7,9 +7,9 @@ public enum RoomType
     Empty,      // ระวังเรื่องการเพิ่ม type มีผลกับ SaveGame
     Bedroom,    // ถ้าอยากเพิ่มต้อง custom index เอา
     Fitness,
-    Toilet,
-    GarbageRoom,
-    WashingMachineRoom
+    MailRoom,
+    LivingRoom,
+    Kitchen
 }
 [Serializable]
 public enum RoomTier
@@ -78,17 +78,17 @@ public class Room : MonoBehaviour
             spriteRendererLeft.sprite = roomTypeSpriteLeft[2];
             spriteRendererRight.sprite = roomTypeSpriteRight[2];
         }
-        else if(roomType == RoomType.Toilet)
+        else if(roomType == RoomType.MailRoom)
         {
             spriteRendererLeft.sprite = roomTypeSpriteLeft[3];
             spriteRendererRight.sprite = roomTypeSpriteRight[3];
         }
-        else if(roomType == RoomType.GarbageRoom)
+        else if(roomType == RoomType.LivingRoom)
         {
             spriteRendererLeft.sprite = roomTypeSpriteLeft[4];
             spriteRendererRight.sprite = roomTypeSpriteRight[4];
         }
-        else if(roomType == RoomType.WashingMachineRoom)
+        else if(roomType == RoomType.Kitchen)
         {
             spriteRendererLeft.sprite = roomTypeSpriteLeft[5];
             spriteRendererRight.sprite = roomTypeSpriteRight[5];
@@ -184,17 +184,17 @@ public class Room : MonoBehaviour
         {
             return 0; /////////Fitness
         }
-        else if(roomType == RoomType.Toilet)
+        else if(roomType == RoomType.MailRoom)
         {
-            return 0; //////////Toilet
+            return 0; //////////MailRoom
         }
-        else if (roomType == RoomType.GarbageRoom)
+        else if (roomType == RoomType.LivingRoom)
         {
-            return 0; //////////GarbageRoom
+            return 0; //////////LivingRoom
         }
         else
         {
-            return 0; /////////washing
+            return 0; /////////Kitchen
         }
     }
     public void SellRoom()

@@ -9,6 +9,10 @@ public static class SaveManager
         PlayerPrefs.SetString($"{keyPrefix}_Name", room.roomName);
         PlayerPrefs.SetInt($"{keyPrefix}_Type", (int)room.roomType);
 
+        if(room.roomType == RoomType.Bedroom)
+        {
+            PlayerPrefs.SetInt($"{keyPrefix}_Tier", (int)room.roomTier);
+        }
 
         PlayerPrefs.Save();
         Debug.Log($"{room.roomName} data saved via SaveGame.");
@@ -23,8 +27,14 @@ public static class SaveManager
             return;
         }
 
-        int t = PlayerPrefs.GetInt($"{keyPrefix}_Type");
-        room.roomType = (RoomType)t;
+        int type = PlayerPrefs.GetInt($"{keyPrefix}_Type");
+        room.roomType = (RoomType)type;
+
+        if (room.roomType == RoomType.Bedroom)
+        {
+            int tier = PlayerPrefs.GetInt($"{keyPrefix}_Type");
+            room.roomTier = (RoomTier)tier;
+        }
 
         Debug.Log($"{room.roomName} data loaded via SaveGame.");
     }
