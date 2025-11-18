@@ -25,20 +25,20 @@ public class TimeUIManager : MonoBehaviour
         // update ui ตอนเริ่มเกม
         DayPass();
         MonthPass();
-        YearPass();
+        //YearPass();
     }
 
     private void OnEnable()
     {
         TimeManager.OnNewDay += DayPass;
         TimeManager.OnNewMonth += MonthPass;
-        TimeManager.OnNewYear += YearPass;
+        //TimeManager.OnNewYear += YearPass;
     }
     private void OnDisable()
     {
         TimeManager.OnNewDay -= DayPass;
         TimeManager.OnNewMonth -= MonthPass;
-        TimeManager.OnNewYear -= YearPass;
+        //TimeManager.OnNewYear -= YearPass;
     }
     private void DayPass()
     {
@@ -48,8 +48,8 @@ public class TimeUIManager : MonoBehaviour
     {
         monthText.text = monthPrefix + timeManager.month.ToString();
     }
-    private void YearPass()
+    /*private void YearPass()
     {
         yearText.text = yearPrefix + timeManager.year.ToString();
-    }
+    }*/
 }

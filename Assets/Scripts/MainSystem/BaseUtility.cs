@@ -35,10 +35,16 @@ public class BaseUtility : MonoBehaviour
     }
     private void GetDailyBenefit()
     {
-        money.AddMoney(moneyPerDay);
+        money.AddMoney(CalMoneyPerDay());
         reputation.AddReputation(reputationPerDay);
 
         StartCoroutine(CreateIcon());
+    }
+    private int CalMoneyPerDay()
+    {
+        int total = moneyPerDay + (Reputation.Instance.currentReputation / 100);
+        Debug.Log("RoomManager - AddMoneyDaily " + total);
+        return total;
     }
 
     IEnumerator CreateIcon()

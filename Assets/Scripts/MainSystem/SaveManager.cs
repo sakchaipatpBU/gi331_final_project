@@ -13,7 +13,10 @@ public static class SaveManager
         {
             PlayerPrefs.SetInt($"{keyPrefix}_Tier", (int)room.roomTier);
         }
-
+        if (room.renter != null)
+        {
+            PlayerPrefs.SetString($"{keyPrefix}_Renter_Name", room.renter.name);
+        }
         PlayerPrefs.Save();
         Debug.Log($"{room.roomName} data saved via SaveGame.");
     }
@@ -36,6 +39,17 @@ public static class SaveManager
             room.roomTier = (RoomTier)tier;
         }
 
+        if (PlayerPrefs.HasKey($"{keyPrefix}_Renter_Name"))
+        {
+            for(int i = RenterManager.Instance.allRenters.Count - 1;
+                i >= 0; i--)
+            {
+                if (RenterManager.Instance.allRenters[i].rentRoom == null)
+                {
+                    RenterManager.Instance.allRenters[i].Initialize(room);
+                }
+            }
+        }
         Debug.Log($"{room.roomName} data loaded via SaveGame.");
     }
 
@@ -78,5 +92,41 @@ public static class SaveManager
         Money.Instance.currentMoney = PlayerPrefs.GetInt("Money");
 
         Debug.Log($"Money data loaded via SaveGame.");
+    }
+    public static void SaveReputation()
+    {
+        PlayerPrefs.SetInt("Reputation", Reputation.Instance.currentReputation);
+        PlayerPrefs.Save();
+        Debug.Log(">> Reputation data saved via SaveManager.");
+    }
+
+    public static void LoadReputation()
+    {
+        if (!PlayerPrefs.HasKey("Reputation"))
+        {
+            Debug.Log(">> Reputation !No save data found.");
+            return;
+        }
+
+        Reputation.Instance.currentReputation = PlayerPrefs.GetInt("Reputation");
+
+        Debug.Log($"Reputation data loaded via SaveGame.");
+    }
+
+    public static void SaveRenterCount()
+    {
+        PlayerPrefs.SetInt("RenterCount", RenterManager.Instance.allRenters.Count);
+        PlayerPrefs.Save();
+        Debug.Log(">> RenterCount data saved via SaveManager.");
+    }
+    public static void LoadRenterCount()
+    {
+        if (!PlayerPrefs.HasKey("RenterCount"))
+        {
+            Debug.Log(">> RenterCount !No save data found.");
+            return;
+        }
+        RenterManager.Instance.onStartRenter = PlayerPrefs.GetInt("RenterCount");
+        Debug.Log($"RenterCount data loaded via SaveGame.");
     }
 }

@@ -12,9 +12,9 @@ public class BuyPanel : MonoBehaviour
     public TMP_Text priceText;
     public Button bedroomButton;
     public Button fitnessButton;
-    public Button toiletButton;
-    public Button garbageRoomButton;
-    public Button washingMachineRoomButton;
+    public Button mailRoomButton;
+    public Button KitchenButton;
+    public Button LivingRoomButton;
     public Button sellButton;
     public Button upgradeButton;
     public Button buyButton;
@@ -49,7 +49,10 @@ public class BuyPanel : MonoBehaviour
         this.room = room;
 
         gameObject.SetActive(true);
-        ShowPanel();
+        //ShowPanel();
+
+        UpdateButton();
+        UpdataHeaderText();
 
         //button.onClick.RemoveAllListeners();
         //button.onClick.AddListener(() => OnButtonClicked());
@@ -102,9 +105,9 @@ public class BuyPanel : MonoBehaviour
 
             bedroomButton.gameObject.SetActive(true);
             fitnessButton.gameObject.SetActive(true);
-            toiletButton.gameObject.SetActive(true);
-            garbageRoomButton.gameObject.SetActive(true);
-            washingMachineRoomButton.gameObject.SetActive(true);
+            mailRoomButton.gameObject.SetActive(true);
+            KitchenButton.gameObject.SetActive(true);
+            LivingRoomButton.gameObject.SetActive(true);
 
             buyButton.gameObject.SetActive(false);
             sellButton.gameObject.SetActive(false);
@@ -118,9 +121,9 @@ public class BuyPanel : MonoBehaviour
             buyButton.gameObject.SetActive(false);
             bedroomButton.gameObject.SetActive(false);
             fitnessButton.gameObject.SetActive(false);
-            toiletButton.gameObject.SetActive(false);
-            garbageRoomButton.gameObject.SetActive(false);
-            washingMachineRoomButton.gameObject.SetActive(false);
+            mailRoomButton.gameObject.SetActive(false);
+            KitchenButton.gameObject.SetActive(false);
+            LivingRoomButton.gameObject.SetActive(false);
         }
         else
         {
@@ -130,9 +133,9 @@ public class BuyPanel : MonoBehaviour
             buyButton.gameObject.SetActive(false);
             bedroomButton.gameObject.SetActive(false);
             fitnessButton.gameObject.SetActive(false);
-            toiletButton.gameObject.SetActive(false);
-            garbageRoomButton.gameObject.SetActive(false);
-            washingMachineRoomButton.gameObject.SetActive(false);
+            mailRoomButton.gameObject.SetActive(false);
+            KitchenButton.gameObject.SetActive(false);
+            LivingRoomButton.gameObject.SetActive(false);
         }
     }
     public void ShowPanel()
@@ -201,15 +204,21 @@ public class BuyPanel : MonoBehaviour
     {
         room.SellRoom();
         selectedType = RoomType.Empty;
+        UpdateButton();
+        UpdataHeaderText();
     }
     public void OnBuyButtonClicked()
     {
         room.BuyRoom(selectedType);
         selectedType = RoomType.Empty;
+        UpdateButton();
+        UpdataHeaderText();
     }
 
     public void OnUpgradeButtonClicked()
     {
         room.UpgradeRoom();
+        UpdateButton();
+        UpdataHeaderText();
     }
 }

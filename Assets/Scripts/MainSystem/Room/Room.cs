@@ -35,6 +35,8 @@ public class Room : MonoBehaviour
     public int[] price_Type;
     public int[] price_Tier;
 
+    public Renter renter;
+
     private void Start()
     {
         roomName = gameObject.name;
@@ -43,7 +45,20 @@ public class Room : MonoBehaviour
         UpdateSprite();
     }
 
+    public void SetRenter(Renter _renter, bool checkIn)
+    {
+        if (roomType != RoomType.Bedroom) return;
 
+        if (checkIn)
+        {
+            renter = _renter;
+
+        }
+        else
+        {
+            renter = null;
+        }
+    }
     public void UpdateSprite()
     {
         if(roomType == RoomType.Empty)

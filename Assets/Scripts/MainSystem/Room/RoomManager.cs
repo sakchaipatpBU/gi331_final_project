@@ -77,11 +77,17 @@ public class RoomManager : MonoBehaviour
             if (allRoom[i].roomType != RoomType.Empty && 
                 allRoom[i].roomType != RoomType.Bedroom)
             {
-                Money.Instance.AddMoney(moneyDaily);
+                Money.Instance.AddMoney(CalMoneyPerDay());
             }
         }
     }
 
+    private int CalMoneyPerDay()
+    {
+        int total = moneyDaily + (Reputation.Instance.currentReputation / 100);
+        Debug.Log("RoomManager - AddMoneyDaily " + total);
+        return total;
+    }
     public void AddReputationDaily()
     {
         for (int i = allRoom.Count - 1; i >= 0; i--)
