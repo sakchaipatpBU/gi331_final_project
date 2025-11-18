@@ -14,6 +14,9 @@ public class Renter : MonoBehaviour
 
     public Sprite[] renterSprite; // สุ่ม sprite
 
+    public int startDate;
+    public int endDate;
+
     public void Initialize(Room room)
     {
 

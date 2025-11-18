@@ -10,8 +10,8 @@ public class TimeUIManager : MonoBehaviour
     public TMP_Text monthText;
     public TMP_Text yearText;
 
-    public string dayPrefix = "Day : ";
-    public string monthPrefix = "Month : ";
+    public string dayPrefix = "D. ";
+    public string monthPrefix = "M. ";
     public string yearPrefix = "Year : ";
 
     void Start()
