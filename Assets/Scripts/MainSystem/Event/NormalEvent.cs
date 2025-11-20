@@ -74,9 +74,9 @@ public class NormalEvent : Event
     // เรียกจาก eventPrefab
     public void OnNormalEventClicked()
     {
+        AddReputation();
         isInteract = true;
         EventManager.GetInstance().RemoveNormalEvent(this);
-        AddReputation();
         Destroy(this.gameObject);
     }
 

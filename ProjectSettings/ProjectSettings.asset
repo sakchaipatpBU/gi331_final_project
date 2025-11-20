@@ -923,11 +923,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: dbad76a1-a340-4019-92f4-69930cce8163
+  cloudProjectId: 791ede66-ea77-4f00-a847-672ee5d4c9ac
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: gi331_final_project
-  organizationId: aok55677
+  organizationId: sakchai-amornrat-gmail-com
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

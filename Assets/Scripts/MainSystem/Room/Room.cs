@@ -135,6 +135,7 @@ public class Room : MonoBehaviour
     public void OnPointerClicked()
     {
         BuyPanel.Instance.Initialize(this);
+        SoundManager.Instance.PlaySFX("switch10");
     }
 
     public int CalculateBuyRoomPrice(RoomType _type)
@@ -202,32 +203,32 @@ public class Room : MonoBehaviour
         {
             if(roomTier == RoomTier.Normal)
             {
-                return 0; ///////Normal
+                return CalculateBuyRoomPrice(RoomType.Bedroom)/2; //Normal
             }
             else if(roomTier == RoomTier.Extra)
             {
-                return 0; ////////Extra
+                return CalculateBuyRoomPrice(RoomType.Bedroom)/2; //Extra
             }
             else
             {
-                return 0; ///////super extra
+                return CalculateBuyRoomPrice(RoomType.Bedroom)/2; //super extra
             }
         }
         else if(roomType == RoomType.Fitness)
         {
-            return 0; /////////Fitness
+            return CalculateBuyRoomPrice(RoomType.Fitness)/2; //Fitness
         }
         else if(roomType == RoomType.MailRoom)
         {
-            return 0; //////////MailRoom
+            return CalculateBuyRoomPrice(RoomType.MailRoom)/2; //MailRoom
         }
         else if (roomType == RoomType.LivingRoom)
         {
-            return 0; //////////LivingRoom
+            return CalculateBuyRoomPrice(RoomType.LivingRoom)/2; //LivingRoom
         }
         else
         {
-            return 0; /////////Kitchen
+            return CalculateBuyRoomPrice(RoomType.Kitchen)/2; //Kitchen
         }
     }
     public void SellRoom()
