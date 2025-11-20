@@ -102,10 +102,6 @@ public class IAPStore : MonoBehaviour
     {
         SetupCash(true);
     }
-    void NonActvateCash()
-    {
-        SetupCash(false);
-    }
     public void OnpurchaseActivateChasX2(Product product)
     {
         Debug.Log(product.definition.id);
