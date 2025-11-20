@@ -71,6 +71,9 @@ public class TimeManager : MonoBehaviour
     void AddMonth()
     {
         month++;
+        AdsSample.Instance.LoadInterstitialAd();
+        AdsSample.Instance.ShowInterstitialAd();
+
         if (OnNewMonth != null)
         {
             OnNewDay();

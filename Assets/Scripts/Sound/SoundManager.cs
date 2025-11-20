@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             LoadClips();
         }
         else
@@ -66,7 +66,10 @@ public class SoundManager : MonoBehaviour
         StartCoroutine(FadeAudio(musicSource, targetVolume, duration));
     }
 
-
+    public void OnClicked_PlaySound()
+    {
+        PlaySFX("switch10");
+    }
 
     public void PlaySFX(string clipName, float volume = 1f, float pitch = 1f)
     {
