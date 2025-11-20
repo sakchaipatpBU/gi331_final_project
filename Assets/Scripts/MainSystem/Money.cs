@@ -11,6 +11,7 @@ public class Money : MonoBehaviour
     #region Singleton
     private static Money instance;
     public static Money Instance { get { return instance; } }
+    public bool isSub = false;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -28,11 +29,16 @@ public class Money : MonoBehaviour
 
     public void AddMoney(int amount)
     {
+        if (isSub == true)
+        {
+            amount *= 2;
+        }
         currentMoney += amount;
         if (OnChangeMoney != null)
         {
             OnChangeMoney();
         }
+
     }
 
     public bool TrySpend(int amount)
