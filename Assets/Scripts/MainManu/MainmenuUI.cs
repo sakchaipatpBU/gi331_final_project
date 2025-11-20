@@ -15,7 +15,7 @@ public class MainmenuUI : MonoBehaviour
 
     IEnumerator FadAndLoad()
     {
-        //animator.SetTrigger("Fade");
+        animator.SetTrigger("Fade");
 
         yield return new WaitForSeconds(Sec);
 

@@ -422,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2140154744}
   sceneManager: SampleScene
-  Sec: 1.5
+  Sec: 1
 --- !u!1 &793792349
 GameObject:
   m_ObjectHideFlags: 0
