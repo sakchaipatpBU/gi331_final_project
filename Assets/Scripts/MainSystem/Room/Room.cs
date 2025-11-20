@@ -34,6 +34,25 @@ public class Room : MonoBehaviour
 
     public int[] price_Type;
     public int[] price_Tier;
+    public int[] baseRent;
+    public int BaseRent
+    {
+        get
+        {
+            if(roomTier == RoomTier.Normal)
+            {
+                return baseRent[0];
+            }
+            else if(roomTier == RoomTier.Extra)
+            {
+                return baseRent[1];
+            }
+            else
+            {
+                return baseRent[2];
+            }
+        }
+    }
 
     public Renter renter;
 
@@ -127,7 +146,7 @@ public class Room : MonoBehaviour
         }
         else
         {
-            // type ถูกมองข้าม แต่ต้องมีค่า เพราะยังใช้ index
+            // type Bedroom ถูกมองข้าม แต่ต้องมีค่า เพราะยังใช้ index
             return price_Type[(int)_type];
         }
     }

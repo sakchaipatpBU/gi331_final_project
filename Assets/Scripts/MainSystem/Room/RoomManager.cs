@@ -14,6 +14,16 @@ public class RoomManager : MonoBehaviour
     public int moneyDaily;
     public int reputationDaily;
     public List<Room> allRoom = new List<Room>();
+
+    #region Singleton
+    private static RoomManager instance;
+    public static RoomManager Instance { get { return instance; } }
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+    }
+    #endregion
     private void OnEnable()
     {
         TimeManager.OnNewDay += AddMoneyDaily;

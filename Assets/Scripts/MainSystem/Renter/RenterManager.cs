@@ -48,5 +48,8 @@ public class RenterManager : MonoBehaviour
             allRenters.Add(renter);
         }
     }
-
+    public void RenterLeave(Renter _renter)
+    {
+        allRenters.Remove(_renter);
+    }
 }

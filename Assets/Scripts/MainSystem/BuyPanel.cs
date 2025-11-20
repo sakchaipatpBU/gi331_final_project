@@ -10,6 +10,7 @@ public class BuyPanel : MonoBehaviour
     public string headerString;
     public TMP_Text headerText;
     public TMP_Text priceText;
+    public TMP_Text sellText;
     public Button bedroomButton;
     public Button fitnessButton;
     public Button mailRoomButton;
@@ -23,6 +24,7 @@ public class BuyPanel : MonoBehaviour
     public RoomType selectedType;
     public int price;
     public string pricePrefix = "Price: ";
+    public string sellPrefix = "Sell: ";
 
     public Camera mainCamera;
     private InputAction leftClickAction;
@@ -46,6 +48,7 @@ public class BuyPanel : MonoBehaviour
     public void Initialize(Room room)
     {
         priceText.text = string.Empty;
+        sellText.text = string.Empty;
         this.room = room;
 
         gameObject.SetActive(true);
@@ -90,11 +93,13 @@ public class BuyPanel : MonoBehaviour
             // Bedroom => แสดง tier ถัดไป
             headerString = $"Upgrade Bedroom to {(RoomTier)((int)room.roomTier + 1)}";
             priceText.text = pricePrefix + room.CalculateBuyRoomPrice(RoomType.Bedroom).ToString();
+            sellText.text = sellPrefix + room.CalculateSellRoomPrice().ToString();  
         }
         else
         {
             // ห้องซื้อแล้ว
             headerString = room.roomType.ToString();
+            sellText.text = sellPrefix + room.CalculateSellRoomPrice().ToString();
         }
         headerText.text = headerString;
     }
@@ -213,6 +218,10 @@ public class BuyPanel : MonoBehaviour
         selectedType = RoomType.Empty;
         UpdateButton();
         UpdataHeaderText();
+        if(room.roomType != RoomType.Bedroom)
+        {
+            priceText.text = string.Empty;
+        }
     }
 
     public void OnUpgradeButtonClicked()

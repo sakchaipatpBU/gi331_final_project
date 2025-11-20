@@ -78,6 +78,8 @@ MonoBehaviour:
   roomPosition: {x: 0, y: 0, z: 0}
   price_Type: 64000000640000002c010000f401000020030000e8030000
   price_Tier: 64000000c80000002c010000
+  baseRent: 140000003200000050000000
+  renter: {fileID: 0}
 --- !u!114 &3208841170056156196
 MonoBehaviour:
   m_ObjectHideFlags: 0

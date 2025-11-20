@@ -129,4 +129,38 @@ public static class SaveManager
         RenterManager.Instance.onStartRenter = PlayerPrefs.GetInt("RenterCount");
         Debug.Log($"RenterCount data loaded via SaveGame.");
     }
+    public static void SaveRenter(Renter renter)
+    {
+        string keyPrefix = renter.name;
+
+        PlayerPrefs.SetString($"{keyPrefix}_Name", renter.name);
+        PlayerPrefs.SetInt($"{keyPrefix}_Satisfaction", renter.currentSatisfaction);
+        PlayerPrefs.SetInt($"{keyPrefix}_Start_D", renter.startDate);
+        PlayerPrefs.SetInt($"{keyPrefix}_Start_M", renter.startMonth);
+        PlayerPrefs.SetInt($"{keyPrefix}_End_D", renter.endDate);
+        PlayerPrefs.SetInt($"{keyPrefix}_End_M", renter.endMonth);
+
+        PlayerPrefs.Save();
+        Debug.Log($"{renter.name} data saved via SaveGame.");
+    }
+    public static void LoadRenter(Renter renter)
+    {
+        string keyPrefix = renter.name;
+
+        if (!PlayerPrefs.HasKey($"{keyPrefix}_Name"))
+        {
+            Debug.Log($">> {renter.name} !No save data found.");
+            return;
+        }
+
+        renter.currentSatisfaction = PlayerPrefs.GetInt($"{keyPrefix}_Satisfaction");
+        renter.startDate = PlayerPrefs.GetInt($"{keyPrefix}_Start_D");
+        renter.startMonth = PlayerPrefs.GetInt($"{keyPrefix}_Start_M");
+        renter.endDate = PlayerPrefs.GetInt($"{keyPrefix}_End_D");
+        renter.endMonth = PlayerPrefs.GetInt($"{keyPrefix}_End_M");
+
+        Debug.Log($"{renter.name} data loaded via SaveGame.");
+
+    }
+
 }

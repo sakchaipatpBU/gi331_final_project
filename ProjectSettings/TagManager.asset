@@ -47,6 +47,9 @@ TagManager:
   - name: Room
     uniqueID: 2399489595
     locked: 0
+  - name: Renter
+    uniqueID: 2880904801
+    locked: 0
   - name: UI
     uniqueID: 635018903
     locked: 0
