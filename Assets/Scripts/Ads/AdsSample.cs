@@ -64,7 +64,7 @@ public class AdsSample : MonoBehaviour
 
     private void RewardedVideoOnAdRewardedEvent(LevelPlayAdInfo info, LevelPlayReward reward)
     {
-        Money.Instance.AddMoney(300);
+        Reputation.Instance.AddReputation(300);
     }
     private void RewardedVideoOnAdClosedEvent(LevelPlayAdInfo info)
     {

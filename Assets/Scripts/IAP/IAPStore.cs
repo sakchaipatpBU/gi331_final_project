@@ -10,7 +10,7 @@ public class IAPStore : MonoBehaviour
 
     [Header("Non Consmabel")]
     public GameObject adsPurchasedWindow;
-    public GameObject adsBanner;
+    //public GameObject adsBanner;
 
     [Header("Subscription")]
     public GameObject subActivateWindow;
@@ -41,48 +41,47 @@ public class IAPStore : MonoBehaviour
     }
 
     #region Non-Consumable
-    // void DisplayAds(bool active)
-    // {
-    //     if (!active)
-    //     {
-    //         adsPurchasedWindow.SetActive(true);
-    //         adsBanner.SetActive(false);
-    //     }
-    //     else
-    //     {
-    //         adsPurchasedWindow.SetActive(false);
-    //         adsBanner.SetActive(true);
-    //     }
-    // }
-    // void RemoveAds()
-    // {
-    //     DisplayAds(false);
-    // }
-    // void ShowAds()
-    // {
-    //     DisplayAds(true);
-    // }
+    void DisplayAds(bool active)
+    {
+        if (!active)
+        {
+            adsPurchasedWindow.SetActive(true);
+            AdsSample.Instance.HideBannerAds();
+        }
+        else
+        {
+            adsPurchasedWindow.SetActive(false);
+        }
+    }
+    void RemoveAds()
+    {
+        DisplayAds(false);
+    }
+    void ShowAds()
+    {
+        DisplayAds(true);
+    }
 
-    // public void OnpurchaseRemoveAdsCompleta(Product product)
-    // {
-    //     Debug.Log(product.definition.id);
-    //     RemoveAds();
-    // }
+    public void OnpurchaseRemoveAdsCompleta(Product product)
+    {
+        Debug.Log(product.definition.id);
+        RemoveAds();
+    }
 
-    // public void CheckNonConsumable(Product product)
-    // {
-    //     if (product != null)
-    //     {
-    //         if (product.hasReceipt)
-    //         {
-    //             RemoveAds();
-    //         }
-    //         else
-    //         {
-    //             ShowAds();
-    //         }
-    //     }
-    // }
+    public void CheckNonConsumable(Product product)
+    {
+        if (product != null)
+        {
+            if (product.hasReceipt)
+            {
+                RemoveAds();
+            }
+            else
+            {
+                ShowAds();
+            }
+        }
+    }
     #endregion
     #region Subscription
     void SetupCash(bool active)
