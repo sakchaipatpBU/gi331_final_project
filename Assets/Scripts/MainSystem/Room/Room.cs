@@ -135,7 +135,6 @@ public class Room : MonoBehaviour
     public void OnPointerClicked()
     {
         BuyPanel.Instance.Initialize(this);
-        Debug.Log("room clicked");
     }
 
     public int CalculateBuyRoomPrice(RoomType _type)

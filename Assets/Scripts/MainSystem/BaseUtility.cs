@@ -43,7 +43,6 @@ public class BaseUtility : MonoBehaviour
     private int CalMoneyPerDay()
     {
         int total = moneyPerDay + (Reputation.Instance.currentReputation / 100);
-        Debug.Log("RoomManager - AddMoneyDaily " + total);
         return total;
     }
 

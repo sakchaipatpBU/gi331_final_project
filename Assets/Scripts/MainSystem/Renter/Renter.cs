@@ -7,10 +7,12 @@ public class Renter : MonoBehaviour
     public int maxSatisfaction;
     public string namePrefix = "Renter";
     public Room rentRoom;
+    public float percentToRent;
     public int baseRent;
     public Transform startPath;
     public Transform endPath;
     public Vector3 roomOffset;
+
 
     public Sprite[] renterSprite; // สุ่ม sprite
 
@@ -29,11 +31,13 @@ public class Renter : MonoBehaviour
     {
         TimeManager.OnNewDay += CheckIn;
         TimeManager.OnNewDay += CheckOut;
+        //TimeManager.OnNewDay += Leave;
     }
     private void OnDisable()
     {
         TimeManager.OnNewDay -= CheckIn;
         TimeManager.OnNewDay -= CheckOut;
+        //TimeManager.OnNewDay -= Leave;
     }
     public void Initialize(Room room)
     {
@@ -64,7 +68,7 @@ public class Renter : MonoBehaviour
     {
         if (rentRoom != null) return;
 
-        float percent = 20 + (Reputation.Instance.currentReputation / 100); // โอกาสเช่าห้อง
+        float percent = percentToRent + (Reputation.Instance.currentReputation / 100); // โอกาสเช่าห้อง
         float rand = Random.Range(0f, 100f);
         if (percent >= rand)
         {
@@ -80,17 +84,22 @@ public class Renter : MonoBehaviour
                     startDate = TimeManager.Instance.day;
                     startMonth = TimeManager.Instance.month;
                     endDate = Random.Range(1, 28);
-                    endMonth = Random.Range(startMonth, startMonth + 4);
+                    endMonth = Random.Range(startMonth, startMonth + 2);
                     if (endMonth > 12) endMonth -= 12;
 
                     return;
                 }
             }
         }
+        else
+        {
+            RenterManager.Instance.RenterLeave(this);
+            Destroy(gameObject, 1f);
+        }
     }
     public void CheckOut()
     {
-        if(TimeManager.Instance.day != endDate ||
+        if( TimeManager.Instance.day != endDate ||
             TimeManager.Instance.month != endMonth) return;
 
         //จ่าย - ออก
@@ -101,6 +110,13 @@ public class Renter : MonoBehaviour
 
         Destroy(gameObject, 1f);
     }
+
+    /*public void Leave()
+    {
+        if (rentRoom != null) return;
+
+
+    }*/
     public void AddRenterSatisfaction(int amount)
     {
         currentSatisfaction += amount;
