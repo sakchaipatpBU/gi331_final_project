@@ -68,7 +68,7 @@ public class SoundManager : MonoBehaviour
 
     public void OnClicked_PlaySound()
     {
-        PlaySFX("switch10");
+        PlaySFX("switch10", 0.3f);
     }
 
     public void PlaySFX(string clipName, float volume = 1f, float pitch = 1f)

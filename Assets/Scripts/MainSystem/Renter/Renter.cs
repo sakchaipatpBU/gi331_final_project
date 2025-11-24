@@ -13,7 +13,7 @@ public class Renter : MonoBehaviour
     public Transform endPath;
     public Vector3 roomOffset;
 
-
+    public SpriteRenderer spriteRenderer;
     public Sprite[] renterSprite; // สุ่ม sprite
 
     public int startDate;
@@ -26,6 +26,21 @@ public class Renter : MonoBehaviour
         31, 31, 30, 31, 30, 31
     };
 
+    [Header("Movement Settings")]
+    public float minMoveSpeed = 1.2f;
+    public float maxMoveSpeed = 2f;
+    public float moveRange = 3f;
+    public float moveRangeInRoom = 1f;
+
+
+    [Header("Idle Timing")]
+    public float minIdleTime = 1f;
+    public float maxIdleTime = 2.5f;
+
+    public Vector2 startPos;
+    public Vector2 targetPoint;
+    public float speed;
+    public bool isWalking = false;
 
     private void OnEnable()
     {
@@ -41,6 +56,12 @@ public class Renter : MonoBehaviour
     }
     public void Initialize(Room room)
     {
+        isWalking = false;
+        moveRange = moveRangeInRoom;
+        transform.position = room.transform.position + roomOffset;
+        startPos = transform.position;
+        PickNewTarget();
+
         rentRoom = room;
         gameObject.name = namePrefix + room.name;
 
@@ -48,14 +69,55 @@ public class Renter : MonoBehaviour
         room.SetRenter(this, true);
         baseRent = room.BaseRent;
 
-        transform.position = room.transform.position + roomOffset;
+    }
+
+    private void Start()
+    {
+        int randSpriteIdx = Random.Range(0, renterSprite.Length);
+        spriteRenderer.sprite = renterSprite[randSpriteIdx];
+        startPos = transform.position;
+        PickNewTarget();
     }
     private void Update()
     {
-        if (rentRoom != null) return;
-
-        // behav
+        if (isWalking)
+        {
+            WalkToTarget();
+        }
     }
+    void WalkToTarget()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, targetPoint) < 0.1f)
+        {
+            isWalking = false;
+            float idleTime = Random.Range(minIdleTime, maxIdleTime);
+            Invoke(nameof(PickNewTarget), idleTime);
+        }
+    }
+    void PickNewTarget()
+    {
+        // สุ่มจุดภายในระยะ
+        var randX = Random.Range(-moveRange, moveRange);
+        targetPoint = new Vector2(startPos.x + randX, startPos.y);
+
+        // สุ่มความเร็วเดิน
+        speed = Random.Range(minMoveSpeed, maxMoveSpeed);
+
+        // หัน sprite ตามทิศ
+        if (targetPoint.x > transform.position.x)
+        {
+            spriteRenderer.flipX = false; // หันขวา
+
+        }
+        else
+        {
+            spriteRenderer.flipX = true;  // หันซ้าย
+        }
+        isWalking = true;
+    }
+
     public void SaveRenter()
     {
         SaveManager.SaveRenter(this);

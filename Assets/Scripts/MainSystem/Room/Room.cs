@@ -135,7 +135,7 @@ public class Room : MonoBehaviour
     public void OnPointerClicked()
     {
         BuyPanel.Instance.Initialize(this);
-        SoundManager.Instance.PlaySFX("switch10");
+        SoundManager.Instance.PlaySFX("switch10", 0.3f);
     }
 
     public int CalculateBuyRoomPrice(RoomType _type)

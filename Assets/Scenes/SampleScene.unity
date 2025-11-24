@@ -4372,7 +4372,7 @@ Animator:
   m_GameObject: {fileID: 543545920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dfbe402b5e99b7e479130665fb1fe416, type: 2}
+  m_Controller: {fileID: 9100000, guid: 997d74e286dd31e43a9b2e921a0b088f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12300,7 +12300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renterPrefab: {fileID: 1638173761949999489, guid: bb0a41a10077ae04097d712389dbcfa8, type: 3}
   renterParent: {fileID: 1860346155}
-  renterSpawnPos: {x: -3, y: -1.5, z: 0}
+  renterSpawnPos: {x: 0.45, y: -1, z: 0}
   allRenters: []
   onStartRenter: 5
 --- !u!1 &1748416791
@@ -13767,7 +13767,7 @@ MonoBehaviour:
   - {fileID: 4673726708600664835, guid: cc67b850236be1a4e9445cc8dcac8d02, type: 3}
   - {fileID: 998018908186453911, guid: 5dbb34a4a256deb438ab00377616c40e, type: 3}
   eventParent: {fileID: 1330684073}
-  percentTriggerEvent: 50
+  percentTriggerEvent: 18
   roomCount: 0
 --- !u!4 &1870615503
 Transform:
